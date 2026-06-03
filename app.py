@@ -23,6 +23,7 @@ st.set_page_config(
     page_icon="◈",
     layout="wide",
     initial_sidebar_state="expanded",
+    menu_items={},
 )
 
 # Hide Streamlit default elements
@@ -88,7 +89,27 @@ html, body, .stApp {
 }
 
 /* Remove Streamlit branding */
-#MainMenu, footer, header { visibility: hidden; }
+/* #MainMenu, footer, header { visibility: hidden; } */
+#MainMenu, footer { visibility: hidden !important; }
+
+/* JANGAN sembunyikan seluruh header, tapi hanya elemen tertentu */
+header[data-testid="stHeader"] {
+    visibility: visible !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Pastikan tombol toggle sidebar tetap muncul */
+button[aria-label="Toggle sidebar"], 
+[data-testid="stSidebarCollapseButton"] {
+    display: flex !important;
+    visibility: visible !important;
+    background: white !important;
+}
+
 .block-container {
     padding: 1.5rem 2rem !important;
     max-width: 1400px !important;
