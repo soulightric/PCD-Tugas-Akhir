@@ -26,14 +26,25 @@ st.set_page_config(
 )
 
 # Hide Streamlit default elements
-hide_style = """
+# ==================== HIDE STREAMLIT BRANDING ====================
+hide_streamlit_style = """
     <style>
         #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
+        footer {visibility: hidden !important;}
         header {visibility: hidden;}
+        .stAppHeader {display: none !important;}
+        
+        /* Hide fullscreen button and built with text */
+        [data-testid="stToolbar"] {display: none !important;}
+        [data-testid="stDecoration"] {display: none !important;}
+        footer {display: none !important;}
+        
+        /* Extra safety */
+        .css-1rs6os, .css-17ziqus, .st-emotion-cache-1g8v9l0 {display: none !important;}
     </style>
 """
-st.markdown(hide_style, unsafe_allow_html=True)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# ============================================================
 
 # ─────────────────────────────────────────────
 #  CSS KUSTOM – TEMA ORANGE PUTIH MODERN
